@@ -5,9 +5,10 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const {HoldingsModel} = require("./model/HoldingsModel");
-const {PositionsModel} = require("./model/PositionsModel");
-const {OrdersModel} = require("./model/OrdersModel");
+const {HoldingsModel} = require("./models/HoldingsModel");
+const {PositionsModel} = require("./models/PositionsModel");
+const {OrdersModel} = require("./models/OrdersModel");
+const User = require("./models/UserModel");
 
 const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
@@ -205,6 +206,14 @@ newOrder.save();
 
 res.send("order saved");
 });
+exports.signup = (req, res) => {
+  res.send("Signup form submit hua");
+};
+
+exports.login = (req, res) => {
+  res.send("Login form submit hua");
+};
+
 
 app.listen(PORT,() =>{
     console.log("listen to the port on 3002");
